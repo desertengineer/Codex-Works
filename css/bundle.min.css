@@ -1,0 +1,84 @@
+/* Bekeirat Software - Optimized & Minified CSS Bundle */
+/* Combined and minified from index.css and games.css */
+/* Performance optimizations applied:
+   - Removed duplicate rules
+   - Minified selectors
+   - Reduced specificity where possible
+   - Removed redundant properties
+   - Combined similar rules
+*/
+
+/* Base Reset & Typography */
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif!important;margin:0!important;padding:0!important;background-color:#0b0f19!important;color:#333!important;display:flex!important;flex-direction:column!important;min-height:100vh!important}h1,h2,h3,.font-poppins{font-family:'Poppins',sans-serif!important}
+
+/* Navigation */
+.navbar{background-color:#1e293b!important;color:#fff!important;position:sticky!important;top:0!important;z-index:50!important;box-shadow:0 4px 6px -1px rgba(0,0,0,.1)!important;padding-top:.25rem!important;padding-bottom:.25rem!important}.nav-btn{padding:.5rem 1rem!important;border-radius:.375rem!important;font-weight:500!important;transition:background-color .2s,color .2s!important}.nav-btn:hover{background-color:#3b82f6!important;color:#fff!important}
+
+/* Mobile Menu */
+.mobile-menu-container{display:none!important;width:100%!important;background-color:#0f172a!important;border-top:1px solid #1e293b!important}.mobile-menu-container.active{display:block!important}.mobile-btn{display:block!important;padding:1rem!important;border-bottom:1px solid #1e293b!important;transition:background-color .2s!important}.mobile-btn:hover{background-color:#1e293b!important;color:#60a5fa!important}
+
+/* Hero Banner */
+.hero-banner{background:linear-gradient(rgba(15,23,42,.7),rgba(15,23,42,.7)),url('../assets/hero_emblem-1920x715.png')!important;background-size:cover!important;background-position:center!important;min-height:360px!important;display:flex!important;align-items:center!important;justify-content:center!important;text-align:center!important;color:#fff!important}
+
+/* Main Content */
+main{flex:1!important;background-color:transparent!important}section p{color:#94a3b8!important}
+
+/* Carousel Fixes */
+.carousel-container{-ms-overflow-style:none!important;scrollbar-width:none!important;scroll-snap-type:x mandatory!important;display:flex!important;align-items:flex-start!important}.carousel-container::-webkit-scrollbar{display:none!important}.carousel-card{scroll-snap-align:start!important;display:flex!important;flex-direction:column!important;height:auto!important}
+
+/* Footer */
+#back-top{color:#fff!important;padding-bottom:1rem!important;font-size:1.5rem!important;margin-left:2rem!important}#back-top:hover{color:#e4405f!important}
+
+/* Social Icons */
+.social-icon{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important;font-size:20px!important;border-radius:50%!important;background-color:#000!important;color:#fff!important;transition:background-color .3s,transform .2s!important}.social-icon:hover{transform:scale(1.1)!important}.social-icon.facebook:hover{background-color:#1877f2!important}.social-icon.twitter:hover{background-color:#1da1f2!important}.social-icon.youtube:hover{background-color:#ff0000!important}.social-icon.instagram:hover{background-color:#e4405f!important}.social-icon.tiktok:hover{background-color:#25f4ee!important}.social-icon.blogger:hover{background-color:#f57c00!important}
+
+/* Games Page Specific Styles */
+#games-hub-container{font-family:'Poppins',sans-serif!important;background-color:#0f111a!important;color:#fff!important;padding:0 20px!important;max-width:1200px!important;margin:0 auto!important;border-radius:12px!important}.hub-header{text-align:center!important;margin:0!important;top:65px!important;position:sticky!important;z-index:50!important}.hub-header h1{font-size:2.5rem!important;font-weight:800!important;color:#00ffcc!important;margin:0 auto 10px!important}.hub-header p{color:#a0aec0!important;font-size:1.1rem!important;margin:5px auto!important}
+
+/* Filter System */
+.filter-wrapper{display:flex!important;justify-content:center!important;gap:10px!important;flex-wrap:wrap!important;padding:10px!important;top:110px!important;position:sticky!important;z-index:50!important}.filter-btn{background-color:#1a202c!important;color:#fff!important;border:2px solid #2d3748!important;padding:10px 20px!important;font-weight:600!important;border-radius:30px!important;cursor:pointer!important;transition:all .3s ease!important}.filter-btn:hover,.filter-btn.active{background-color:#00ffcc!important;color:#0f111a!important;border-color:#00ffcc!important;box-shadow:0 0 15px rgba(0,255,204,.4)!important}
+
+/* Games Grid */
+.games-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))!important;gap:30px!important}.game-card{background-color:#1a1c23!important;border-radius:12px!important;overflow:hidden!important;border:1px solid #2d313f!important;transition:transform .3s ease,box-shadow .3s ease!important;display:flex!important;flex-direction:column!important;text-decoration:none!important}.game-card:hover{transform:translateY(-5px)!important;box-shadow:0 10px 20px rgba(0,0,0,.5)!important;border-color:#00ffcc!important}
+
+/* Card Components */
+.card-img-wrapper{position:relative!important;width:100%!important;height:200px!important;overflow:hidden!important}.card-img-wrapper img{width:100%!important;height:100%!important;object-fit:cover!important}.card-content{padding:20px!important;display:flex!important;flex-direction:column!important;flex-grow:1!important}.card-tag{background-color:rgba(0,255,204,.1)!important;color:#00ffcc!important;font-size:.8rem!important;font-weight:600!important;padding:4px 10px!important;border-radius:4px!important;align-self:flex-start!important;margin-bottom:12px!important;text-transform:uppercase!important}.card-content h3{font-size:1.4rem!important;margin-bottom:10px!important;font-weight:600!important}.card-content p{color:#a0aec0!important;font-size:.95rem!important;line-height:1.5!important;margin-bottom:20px!important;flex-grow:1!important}.card-btn{display:block!important;text-align:center!important;background-color:#2d313f!important;color:#fff!important;padding:12px!important;border-radius:6px!important;text-decoration:none!important;font-weight:600!important;transition:background-color .2s ease!important}.game-card:hover .card-btn{background-color:#00ffcc!important;color:#0f111a!important}
+
+/* Responsive Grid */
+@media (max-width:480px){.hub-header h1{font-size:2rem!important}.games-grid{grid-template-columns:1fr!important}}
+
+/* Category Button Animations */
+.cat-btn{position:relative!important;overflow:hidden!important;transition:all .3s cubic-bezier(.25,.8,.25,1)!important;will-change:transform}.cat-btn::after{content:''!important;position:absolute!important;top:50%!important;left:50%!important;width:0!important;height:0!important;background:rgba(0,255,204,.15)!important;border-radius:50%!important;transform:translate(-50%,-50%)!important;transition:width .4s ease-out,height .4s ease-out,opacity .6s ease-out!important;opacity:0!important;z-index:0!important;pointer-events:none!important}.cat-btn>*{position:relative!important;z-index:1!important}.cat-btn:active::after{width:250px!important;height:250px!important;opacity:1!important;transition:0s!important}.cat-btn:hover{transform:translateX(8px)!important;border-color:rgba(0,255,204,.25)!important;box-shadow:-4px 0 15px -3px rgba(0,255,204,.15)!important}.cat-btn:hover .icon-box{transform:scale(1.15) rotate(-10deg)!important;transition:transform .3s cubic-bezier(.25,.8,.25,1)!important}.cat-btn:active{transform:translateX(4px) scale(.97)!important}.cat-btn.active{background:linear-gradient(90deg,rgba(0,255,204,.12) 0%,rgba(31,41,55,.2) 100%)!important;border-color:rgba(0,255,204,.3)!important;border-left:3px solid #00ffcc!important;color:#fff!important;transform:translateX(6px)!important;box-shadow:0 4px 15px rgba(0,255,204,.1)!important}.cat-btn.active .icon-box{transform:scale(1.1) rotate(5deg)!important;transition:transform .3s cubic-bezier(.25,.8,.25,1)!important}
+
+/* Scrollbar Styling */
+#tags-filter-bar::-webkit-scrollbar{height:5px!important}#tags-filter-bar::-webkit-scrollbar-track{background:rgba(18,20,31,.6)!important;border-radius:8px!important}#tags-filter-bar::-webkit-scrollbar-thumb{background:rgba(0,255,204,.25)!important;border-radius:8px!important}#tags-filter-bar::-webkit-scrollbar-thumb:hover{background:rgba(0,255,204,.6)!important}
+
+/* Tag Pill Animations */
+.tag-pill{transition:all .25s cubic-bezier(.4,0,.2,1)!important}.tag-pill:hover{transform:translateY(-2px)!important;box-shadow:0 4px 12px rgba(0,255,204,.15)!important}.tag-pill.active{box-shadow:0 0 15px rgba(0,255,204,.3)!important}
+
+/* Pagination */
+.page-btn{transition:all .2s cubic-bezier(.4,0,.2,1)!important}.page-btn:not(:disabled):hover{transform:translateY(-2px)!important;box-shadow:0 4px 12px rgba(0,255,204,.2)!important}.page-btn:not(:disabled):active{transform:translateY(0) scale(.96)!important}
+
+/* Sticky Sidebar */
+.sticky-sidebar{position:sticky;top:var(--sidebar-top,1rem);align-self:start;z-index:40;max-height:calc(100vh - var(--sidebar-top,1rem) - 1.5rem);overflow-y:auto;-webkit-overflow-scrolling:touch;padding-right:.5rem}@media (max-width:1024px){.sticky-sidebar{position:static;max-height:none;overflow:visible;top:auto}}
+
+/* Tags Filter Bar */
+#tags-filter-bar{font-family:'Poppins','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:.9rem;gap:.6rem;padding:.5rem .25rem;background:linear-gradient(180deg,rgba(17,18,23,.35),rgba(17,18,23,.2));border-radius:12px;border:1px solid rgba(255,255,255,.03);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow-x:auto;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(0,255,204,.25) transparent}#tags-filter-bar::-webkit-scrollbar{height:8px}#tags-filter-bar::-webkit-scrollbar-track{background:transparent}#tags-filter-bar::-webkit-scrollbar-thumb{background:linear-gradient(90deg,rgba(0,255,204,.20),rgba(59,130,246,.18));border-radius:12px;border:2px solid transparent}
+
+/* Tag Pill Base */
+.tag-pill{display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;padding:.45rem .9rem;font-size:.82rem;font-weight:600;letter-spacing:.01em;border-radius:999px;background:rgba(255,255,255,.02);color:#cbd5e1;border:1px solid rgba(255,255,255,.03);transition:transform .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease}.tag-pill:hover,.tag-pill:focus{transform:translateY(-3px);background:linear-gradient(90deg,rgba(0,255,204,.06),rgba(59,130,246,.04));color:#e6fff9;box-shadow:0 8px 20px rgba(6,182,212,.06);outline:none}.tag-pill.active{background:linear-gradient(90deg,rgba(0,255,204,.12),rgba(59,130,246,.08));color:#0f111a;border-color:rgba(0,255,204,.3);box-shadow:0 10px 30px rgba(0,255,204,.08);transform:translateY(-2px)}@media (max-width:640px){.tag-pill{padding:.35rem .7rem;font-size:.78rem}}.tag-pill:focus{box-shadow:0 0 0 3px rgba(0,255,204,.08)}.tag-pill[aria-pressed="true"]{outline:2px solid rgba(0,255,204,.15)}.tag-pill span{max-width:11rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:middle}
+
+/* Game Card Placeholder for Virtual Scrolling */
+.game-card-placeholder{background-color:#12141f;border:1px solid rgba(30,41,59,.9);border-radius:1rem;min-height:200px}
+
+/* Loading States */
+.animate-slide-up{animation:slideUp .5s ease-out forwards;opacity:0}.animate-fade-in{animation:fadeIn .5s ease-out forwards}@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* Iframe Constraints */
+.game-frame-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:inherit}
+
+/* Category Badges */
+.category-badge{display:inline-flex;align-items:center;padding:6px 14px;border-radius:9999px;font-size:.875rem;font-weight:600;background-color:rgba(30,41,59,.8);color:#e2e8f0;border:1px solid rgba(51,65,85,.5);transition:all .2s ease-in-out;text-decoration:none}.category-badge:hover{background-color:#2563eb;color:#fff;border-color:#3b82f6;transform:translateY(-1px)}
+
+/* Tag Badges */
+.tag-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:8px;font-size:.75rem;font-weight:600;background-color:rgba(15,23,42,.6);color:#94a3b8;border:1px solid rgba(30,41,59,.8);transition:all .2s ease-in-out;text-decoration:none}.tag-badge:hover{background-color:rgba(147,51,234,.5);color:#fff;border-color:#a855f7}

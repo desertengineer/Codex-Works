@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- Primary Meta Tags -->
+    <title>HTML5 Arcade & Web Games Catalog | Bekeirat Software</title>
+    <meta name="title" content="Bekeirat Software - HTML5 Arcade & Web Games Catalog">
+    <meta name="description"
+        content="Browse and play hundreds of free online HTML5 games across puzzle, action, arcade, racing, and strategy genres at Bekeirat Software. No downloads needed.">
+    <meta name="keywords"
+        content="Bekeirat Software, HTML5 games, online browser games, free mobile apps, progressive web apps, puzzle games, arcade games, instant play games, Magic Block Blitz 2026, web gaming hub">
+    <meta name="author" content="Bekeirat Software">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bekeiratsoftwares.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bekeiratsoftwares.com/">
+    <meta property="og:title" content="Bekeirat Software - Free Online HTML5 Games & Apps Hub">
+    <meta property="og:description"
+        content="Play top HTML5 games instantly across all devices. No installation needed. Discover mobile & desktop web apps at Bekeirat Software.">
+    <meta property="og:image" content="https://bekeiratsoftwares.com/assets/og-banner-1200x630.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@MAWLAY20">
+    <meta name="twitter:creator" content="@MAWLAY20">
+    <meta name="twitter:url" content="https://bekeiratsoftwares.com/">
+    <meta name="twitter:title" content="Bekeirat Software - Free Online HTML5 Games & Apps Hub">
+    <meta name="twitter:description"
+        content="Play top HTML5 games instantly across all devices. No installation needed. Discover mobile & desktop web apps at Bekeirat Software.">
+    <meta name="twitter:image" content="https://bekeiratsoftwares.com/assets/og-banner-1200x630.png">
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700&display=swap"></noscript>
+
+    <!-- Preload Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+
+    <!-- Preload critical images -->
+    <link rel="preload" href="../assets/Bekeirat-Software-120x120.png" as="image">
+    <link rel="preload" href="../assets/hero_emblem-1920x715.png" as="image">
+
+    <!-- Load Tailwind CSS deferred -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+
+    <!-- Load custom CSS with media query -->
+    <link rel="stylesheet" href="../css/bundle.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/bundle.min.css"></noscript>
+
+    <!-- Google Analytics (deferred) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XCGXELT421" defer></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Bekeirat Software",
+      "operatingSystem": "Web, Android, Windows",
+      "applicationCategory": "GameApplication",
+      "url": "https://bekeiratsoftwares.com/",
+      "author": {
+        "@type": "Organization",
+        "name": "Bekeirat Software"
+      },
+      "description": "Provider of innovative HTML5 web games, progressive web apps, and desktop titles."
+    }
+    </script>
+
+    <!-- Register Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(err => {
+                    console.log('Service Worker registration failed:', err);
+                });
+            });
+        }
+    </script>
+</head>
+
+<body class="bg-[#0a0b10] text-gray-100 min-h-screen flex flex-col font-sans antialiased">
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar px-4 md:px-8 py-4 flex flex-wrap items-center justify-between border-b border-gray-800/80 bg-[#12141f]">
+        <!-- Brand Logo -->
+        <a href="../index.html"
+            class="flex items-center gap-3 text-2xl font-bold tracking-wider text-blue-400 hover:text-blue-300 transition-colors">
+            <img src="../assets/Bekeirat-Software-120x120.png" alt="Bekeirat Software Logo"
+                class="w-[50px] h-[50px] object-contain rounded-lg bg-white/10"
+                onerror="this.src='https://placehold.co/120x120/1e293b/60a5fa?text=BS'" loading="lazy" decoding="async">
+            Bekeirat Software
+        </a>
+
+        <!-- Mobile Navigation Toggle -->
+        <button id="hamburger-btn"
+            class="md:hidden text-white focus:outline-none hover:text-blue-400 transition-colors p-2"
+            aria-label="Toggle Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="hidden md:flex space-x-2 items-center">
+            <a href="../index.html" class="nav-btn">Home</a>
+            <a href="./about.html" class="nav-btn">About Us</a>
+            <a href="./games.html" class="nav-btn active">Games</a>
+            <a href="./contact us.html" class="nav-btn">Contacts</a>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu-container hidden md:hidden w-full mt-4 pb-2 shadow-inner">
+            <nav class="flex flex-col space-y-1">
+                <a href="../index.html" class="mobile-btn px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">Home</a>
+                <a href="./about.html" class="mobile-btn px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">About Us</a>
+                <a href="./games.html" class="mobile-btn px-4 py-2 text-blue-400 font-bold bg-gray-800/50 rounded">Games</a>
+                <a href="./contact us.html" class="mobile-btn px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">Contacts</a>
+            </nav>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="flex flex-col lg:flex-row gap-8 max-w-[1600px] w-full mx-auto px-4 md:px-6 py-8 flex-1">
+
+        <!-- Sticky Sidebar Category Navigation -->
+        <aside class="sticky-sidebar w-full lg:w-72 shrink-0 bg-[#12141f] p-5 rounded-2xl border border-gray-800/90 shadow-2xl self-start">
+            <nav id="category-menu" class="space-y-2" aria-label="Game categories">
+                <div class="text-sm text-gray-400">Loading categories...</div>
+            </nav>
+        </aside>
+
+        <!-- Main Catalog Container -->
+        <main class="flex-1 min-w-0">
+
+            <!-- Header Bar: Search & Live Metrics -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 bg-[#12141f] p-4 rounded-2xl border border-gray-800/90 shadow-xl">
+                <!-- Search Box -->
+                <div class="relative w-full sm:w-80">
+                    <input type="text" id="game-search-input" oninput="handleSearch(this.value)"
+                        placeholder="Search catalog by title or tag..."
+                        class="w-full bg-[#0a0b10] border border-gray-700/80 text-gray-200 text-sm rounded-xl pl-10 pr-4 py-2.5 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all">
+                    <svg class="w-4 h-4 absolute left-3.5 top-3.5 text-gray-400" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+
+                <!-- Controls & Catalog Counter -->
+                <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+                    <!-- Manual Shuffle Action Button -->
+                    <button onclick="reshuffleGrid()" title="Reshuffle Game Grid"
+                        class="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-800/80 hover:bg-cyan-500/20 text-xs font-semibold text-cyan-400 border border-gray-700 hover:border-cyan-500/40 transition-all active:scale-95">
+                        <svg class="w-3.5 h-3.5 animate-spin-slow" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                            </path>
+                        </svg>
+                        <span>Reshuffle</span>
+                    </button>
+
+                    <!-- Catalog Metric Display -->
+                    <div id="catalog-status"
+                        class="text-xs text-gray-400 font-mono bg-[#0a0b10] px-3 py-2 rounded-xl border border-gray-800">
+                        Showing <span id="page-start-idx" class="text-cyan-400 font-bold">0</span> - <span
+                            id="page-end-idx" class="text-cyan-400 font-bold">0</span> of <span id="total-games-count"
+                            class="text-white font-bold">0</span> Games
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub-Category Filter Tags -->
+            <div id="tags-filter-bar"
+                class="flex items-center gap-2.5 overflow-x-auto pb-3 mb-6 scrollbar-thin px-1 py-1"></div>
+
+            <!-- Games Grid Display -->
+            <div id="main-games-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4"></div>
+
+            <!-- Pagination Controls -->
+            <div id="pagination-controls"
+                class="flex flex-wrap items-center justify-center gap-2 mt-8 py-4 border-t border-gray-800/80"></div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-4 text-center border-t border-gray-800 mt-auto">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <div class="mb-8">
+                <a href="../privacy/" class="hover:text-white transition-colors underline text-sm">Privacy Policy</a>
+            </div>
+
+            <!-- Social Media Bar -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-8 bg-gray-900 border border-gray-800 p-4 rounded-xl shadow-sm">
+                <a href="https://x.com/MAWLAY20"
+                    class="text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="Twitter"
+                    target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512"
+                        fill="currentColor">
+                        <path
+                            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61550888326363"
+                    class="text-gray-400 hover:text-blue-500 transition-transform hover:scale-110" aria-label="Facebook"
+                    target="_blank"><i class="fa-brands fa-facebook text-2xl"></i></a>
+                <a href="https://www.youtube.com/channel/UC-Uc56yi4Ep6_CC1SajWdZw"
+                    class="text-gray-400 hover:text-red-500 transition-transform hover:scale-110" aria-label="YouTube"
+                    target="_blank"><i class="fa-brands fa-youtube text-2xl"></i></a>
+                <a href="https://www.instagram.com/bekerat.mawlay/"
+                    class="text-gray-400 hover:text-pink-500 transition-transform hover:scale-110"
+                    aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                <a href="https://www.tiktok.com/@bekeiratsoftware"
+                    class="text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="TikTok"
+                    target="_blank"><i class="fa-brands fa-tiktok text-2xl"></i></a>
+                <a href="https://bekeiratsoftware.blogspot.com"
+                    class="text-gray-400 hover:text-orange-500 transition-transform hover:scale-110"
+                    aria-label="Blogger" target="_blank"><i class="fa-brands fa-blogger text-2xl"></i></a>
+            </div>
+
+            <div>
+                <p class="text-sm">&copy; <span id="current-year"></span> Bekeirat Software. All rights reserved.</p>
+                <p class="text-xs mt-2 text-gray-500">Cross-Platform Games & Apps Architecture.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Deferred Scripts -->
+    <script src="../js/games.min.js" defer></script>
+    
+    <!-- Load monetization scripts last with async -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2658659289706339" crossorigin="anonymous"></script>
+    <script async src="https://cdn.resources.wortise.com/sdk/web/web-sdk.js"></script>
+    <script async type="text/javascript" src="https://s.skimresources.com/js/307541X1795827.skimlinks.js"></script>
+</body>
+
+</html>
