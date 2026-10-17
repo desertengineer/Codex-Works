@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- Primary Meta Tags -->
+    <title>HTML5 Arcade & Web Games Catalog | Bekeirat Software</title>
+    <meta name="title" content="Bekeirat Software - HTML5 Arcade & Web Games Catalog">
+    <meta name="description"
+        content="Browse and play hundreds of free online HTML5 games across puzzle, action, arcade, racing, and strategy genres at Bekeirat Software. No downloads needed.">
+    <meta name="keywords"
+        content="Bekeirat Software, HTML5 games, online browser games, free mobile apps, progressive web apps, puzzle games, arcade games, instant play games">
+    <meta name="author" content="Bekeirat Software">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bekeiratsoftwares.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bekeiratsoftwares.com/">
+    <meta property="og:title" content="Bekeirat Software - Free Online HTML5 Games & Apps Hub">
+    <meta property="og:description"
+        content="Play top HTML5 games instantly across all devices. No installation needed. Discover mobile & desktop web apps at Bekeirat Software.">
+    <meta property="og:image" content="https://bekeiratsoftwares.com/assets/og-banner-1200x630.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@MAWLAY20">
+    <meta name="twitter:creator" content="@MAWLAY20">
+
+    <!-- ========================================
+         PERFORMANCE OPTIMIZATIONS - LIGHTHOUSE FIXES
+         ======================================== -->
+
+    <!-- 1. Font display fix -->
+    <style>
+        body { font-display: swap; }
+        
+        /* Reserve space for dynamic content */
+        #app-container { min-height: 400px; }
+        .game-frame-wrapper { aspect-ratio: 16/9; min-height: 400px; }
+        .game-thumb-container { aspect-ratio: 4/3; }
+    </style>
+
+    <!-- 2. Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700&display=swap"></noscript>
+
+    <!-- 3. Preload Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+
+    <!-- 4. Preconnect to critical origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+
+    <!-- Load Tailwind CSS deferred -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+
+    <!-- Load custom CSS with media query -->
+    <link rel="stylesheet" href="../css/bundle.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/bundle.min.css"></noscript>
+
+    <!-- Google Analytics (deferred) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XCGXELT421" defer></script>
+
+    <!-- Monetization -->
+    <meta name="google-adsense-account" content="ca-pub-2658659289706339">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Bekeirat Software Game",
+      "operatingSystem": "Web, Android, Windows, iOS",
+      "applicationCategory": "GameApplication",
+      "url": "https://bekeiratsoftwares.com/",
+      "author": {
+        "@type": "Organization",
+        "name": "Bekeirat Software"
+      },
+      "description": "Free online HTML5 browser game."
+    }
+    </script>
+
+    <!-- Register Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(err => {
+                    console.log('Service Worker registration failed:', err);
+                });
+            });
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+        }
+        h1, h2, h3, .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .category-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            background-color: rgba(30, 41, 59, 0.8);
+            color: #e2e8f0;
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+        }
+        .category-badge:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #3b82f6;
+            transform: translateY(-1px);
+        }
+        .tag-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: rgba(15, 23, 42, 0.6);
+            color: #94a3b8;
+            border: 1px solid rgba(30, 41, 59, 0.8);
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+        }
+        .tag-badge:hover {
+            background-color: rgba(147, 51, 234, 0.5);
+            color: #ffffff;
+            border-color: #a855f7;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slideUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .game-frame-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: inherit;
+        }
+        
+        /* CLS Prevention: Reserve space for game cards */
+        .game-card-placeholder {
+            background-color: #12141f;
+            border: 1px solid rgba(30, 41, 59, 0.9);
+            border-radius: 1rem;
+            aspect-ratio: 3/4;
+        }
+    </style>
+</head>
+
+<body class="text-gray-100 min-h-screen flex flex-col antialiased">
+    <!-- Top Navigation Bar -->
+    <nav class="px-4 md:px-8 py-4 flex flex-wrap items-center justify-between border-b border-gray-800/80 bg-[#12141f] sticky top-0 z-50 shadow-md">
+        <a href="../index.html"
+            class="flex items-center gap-3 text-2xl font-bold tracking-wider text-blue-400 hover:text-blue-300 transition-colors font-poppins">
+            <!-- FIXED: Added explicit width/height -->
+            <img src="../assets/Bekeirat-Software-120x120.png" 
+                 alt="Bekeirat Software Logo"
+                 width="120" 
+                 height="120"
+                 class="w-[45px] h-[45px] object-contain rounded-lg bg-white/10"
+                 onerror="this.src='https://placehold.co/120x120/1e293b/60a5fa?text=BS'" 
+                 loading="eager">
+            Bekeirat Software
+        </a>
+
+        <button id="hamburger-btn"
+            class="md:hidden text-white focus:outline-none hover:text-blue-400 transition-colors p-2"
+            aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+
+        <div class="hidden md:flex space-x-6 items-center font-medium">
+            <a href="../index.html" class="text-gray-300 hover:text-white transition-colors">Home</a>
+            <a href="./about.html" class="text-gray-300 hover:text-white transition-colors">About Us</a>
+            <a href="./games.html" class="text-blue-400 font-bold border-b-2 border-blue-400 pb-1">Games</a>
+            <a href="./contact us.html" class="text-gray-300 hover:text-white transition-colors">Contacts</a>
+        </div>
+
+        <div id="mobile-menu" class="hidden w-full mt-4 pb-2 shadow-inner">
+            <nav class="flex flex-col space-y-2">
+                <a href="../index.html" class="px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">Home</a>
+                <a href="./about.html" class="px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">About Us</a>
+                <a href="./games.html" class="px-4 py-2 text-blue-400 font-bold bg-gray-800/50 rounded">Games</a>
+                <a href="./contact us.html" class="px-4 py-2 text-gray-300 hover:bg-gray-800 rounded">Contacts</a>
+            </nav>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow w-full" id="app-container">
+        <div id="loading-message" class="flex flex-col items-center justify-center py-32">
+            <i class="fa-solid fa-circle-notch fa-spin text-5xl text-blue-500 mb-6 drop-shadow-lg"></i>
+            <span class="text-2xl font-semibold font-poppins text-gray-300 tracking-wide">Loading Game Environment...</span>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-4 text-center border-t border-gray-800/80 mt-auto">
+        <div class="max-w-4xl mx-auto flex flex-col items-center">
+            <div class="mb-8">
+                <a href="../privacy/" class="hover:text-white transition-colors underline text-sm">Privacy Policy</a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-8 bg-gray-900 border border-gray-800 p-4 rounded-xl shadow-sm">
+                <a href="https://x.com/MAWLAY20" class="text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="Twitter" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512" fill="currentColor">
+                        <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61550888326363" class="text-gray-400 hover:text-blue-500 transition-transform hover:scale-110" aria-label="Facebook" target="_blank"><i class="fa-brands fa-facebook text-2xl"></i></a>
+                <a href="https://www.youtube.com/channel/UC-Uc56yi4Ep6_CC1SajWdZw" class="text-gray-400 hover:text-red-500 transition-transform hover:scale-110" aria-label="YouTube" target="_blank"><i class="fa-brands fa-youtube text-2xl"></i></a>
+                <a href="https://www.instagram.com/bekerat.mawlay/" class="text-gray-400 hover:text-pink-500 transition-transform hover:scale-110" aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                <a href="https://www.tiktok.com/@bekeiratsoftware" class="text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="TikTok" target="_blank"><i class="fa-brands fa-tiktok text-2xl"></i></a>
+                <a href="https://bekeiratsoftware.blogspot.com" class="text-gray-400 hover:text-orange-500 transition-transform hover:scale-110" aria-label="Blogger" target="_blank"><i class="fa-brands fa-blogger text-2xl"></i></a>
+            </div>
+
+            <div>
+                <p class="text-sm">&copy; <span id="current-year">2026</span> Bekeirat Software. All rights reserved.</p>
+                <p class="text-xs mt-2 text-gray-600">Cross-Platform Games & Apps Architecture.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Deferred Execution Script -->
+    <script defer>
+        const urlParams = new URLSearchParams(window.location.search);
+        const gameId = urlParams.get('id');
+        const JSON_FEED_PATH = '../data/all.json';
+
+        let allGamesData = [];
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Set current year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Cache configuration
+        const CACHE_KEY = 'bekeiratGameData';
+        const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+
+        async function getCachedData() {
+            try {
+                const cached = localStorage.getItem(CACHE_KEY);
+                if (cached) {
+                    const { data, timestamp } = JSON.parse(cached);
+                    if (Date.now() - timestamp < CACHE_TTL) {
+                        return data;
+                    }
+                }
+            } catch (e) {
+                console.warn('Cache read error:', e);
+            }
+            return null;
+        }
+
+        async function setCachedData(data) {
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify({
+                    data,
+                    timestamp: Date.now()
+                }));
+            } catch (e) {
+                console.warn('Cache write error:', e);
+            }
+        }
+
+        async function loadGameData() {
+            if (!gameId) {
+                showError("No Game ID specified in the URL. Please return to the games list and select a game.");
+                return;
+            }
+
+            try {
+                // Check cache first
+                const cached = await getCachedData();
+                if (cached && cached.length > 0) {
+                    allGamesData = cached;
+                    const gameData = cached.find(g => String(g.id) === String(gameId) || String(g.gameId) === String(gameId));
+                    if (gameData) {
+                        renderGamePage(gameData);
+                        return;
+                    }
+                }
+
+                // Try primary data file
+                let response;
+                try {
+                    response = await fetch(JSON_FEED_PATH, { 
+                        cache: 'force-cache',
+                        headers: { 'Accept': 'application/json' }
+                    });
+                } catch (e) {
+                    console.warn('Primary fetch failed:', e);
+                }
+
+                if (!response || !response.ok) {
+                    // Single fallback
+                    try {
+                        response = await fetch('./data/all.json', { 
+                            cache: 'force-cache',
+                            headers: { 'Accept': 'application/json' }
+                        });
+                    } catch (e) {
+                        console.warn('Fallback fetch also failed:', e);
+                    }
+                }
+
+                if (response && response.ok) {
+                    const games = await response.json();
+                    allGamesData = Array.isArray(games) ? games : [];
+                    
+                    // Cache the data
+                    if (allGamesData.length > 0) {
+                        await setCachedData(allGamesData);
+                    }
+
+                    const gameData = allGamesData.find(g => String(g.id) === String(gameId) || String(g.gameId) === String(gameId));
+                    if (gameData) {
+                        renderGamePage(gameData);
+                        return;
+                    }
+                }
+
+                showError(`Game ID "${gameId}" was not found inside the database.`);
+            } catch (err) {
+                showError(`Failed to load game database. Error: ${err.message}`);
+                console.error("Fetch error details:", err);
+            }
+        }
+
+        function renderGamePage(game) {
+            const title = game.Title || game.title || game.name || "Untitled Game";
+            const description = game.Description || game.description || game.desc || "No description provided.";
+            const category = game.Category || game.category || game.genre || "Arcade";
+            const tags = game.Tags || game.tags || game.keywords || "";
+            const thumb = game.Image || game.thumb || game.thumbnail || game.image || "https://placehold.co/512x384/1e293b/60a5fa?text=Game";
+            const id = game.id || game.gameId || gameId;
+
+            // Use the Embed HTML if provided, otherwise fallback to Url
+            let embedCode = game.Embed;
+            if (!embedCode) {
+                const url = game.Url || game.Play || game.url || game.gameUrl || game.link || "";
+                embedCode = `<iframe id="game-iframe" src="${url}" allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope" allowfullscreen="true" scrolling="no" loading="lazy"></iframe>`;
+            }
+
+            let formattedDesc = String(description).replace(/&ndash;/g, '-').replace(/&amp;/g, '&').replace(/\*\*/g, '');
+
+            // Render Categories
+            const categoriesArray = String(category).split(',').map(c => c.trim()).filter(c => c !== '');
+            let categoriesHtml = '';
+            categoriesArray.forEach(cat => {
+                categoriesHtml += `<a href="./games.html?category=${encodeURIComponent(cat)}" class="category-badge"><i class="fa-solid fa-gamepad mr-2 opacity-70"></i>${escapeHtml(cat)}</a>`;
+            });
+
+            // Render Tags
+            const tagsArray = String(tags).split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+            let tagsHtml = '';
+            if (tagsArray.length > 0) {
+                tagsArray.forEach(tag => {
+                    tagsHtml += `<a href="./games.html?tag=${encodeURIComponent(tag)}" class="tag-badge"><i class="fa-solid fa-hashtag mr-1 text-blue-400"></i>${escapeHtml(tag)}</a>`;
+                });
+            } else {
+                tagsHtml = `<a href="./games.html?tag=HTML5" class="tag-badge"><i class="fa-brands fa-html5 mr-1 text-orange-500"></i>HTML5</a>`;
+            }
+
+            // Get related games (same category or random)
+            let relatedGames = allGamesData.filter(g =>
+                (String(g.id) !== String(id) && String(g.gameId) !== String(id)) &&
+                (String(g.Category || g.category || g.genre).includes(categoriesArray[0]))
+            );
+
+            if (relatedGames.length < 6) {
+                const otherGames = allGamesData.filter(g => String(g.id) !== String(id) && String(g.gameId) !== String(id));
+                const needed = 6 - relatedGames.length;
+                for (let i = 0; i < needed && i < otherGames.length; i++) {
+                    if (!relatedGames.includes(otherGames[i])) {
+                        relatedGames.push(otherGames[i]);
+                    }
+                }
+            }
+
+            // Generate CSS Grid items with lazy loading
+            let gridItemsHtml = '';
+            relatedGames.slice(0, 6).forEach(rg => {
+                const rgThumb = rg.Image || rg.thumb || rg.thumbnail || rg.image || "https://placehold.co/512x384/1e293b/60a5fa?text=Game";
+                const rgTitle = rg.Title || rg.title || rg.name || "Game";
+                const rgId = rg.id || rg.gameId;
+
+                gridItemsHtml += `
+                    <a href="?id=${encodeURIComponent(rgId)}" class="group relative block rounded-2xl overflow-hidden shadow-md border border-slate-700 hover:border-blue-500 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-300">
+                        <img src="${escapeHtml(rgThumb)}" 
+                             alt="${escapeHtml(rgTitle)}" 
+                             width="512" 
+                             height="384"
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-24 object-cover transition-transform duration-500 group-hover:scale-110" 
+                             onerror="this.src='https://placehold.co/512x384/1e293b/60a5fa?text=${encodeURIComponent(rgTitle)}'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 w-full p-2 text-center">
+                            <h3 class="text-[11px] font-bold text-gray-100 truncate drop-shadow-md group-hover:text-blue-300 transition-colors">${escapeHtml(rgTitle)}</h3>
+                        </div>
+                    </a>
+                `;
+            });
+
+            const htmlContent = `
+                <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-10 w-full">
+                    <div class="animate-fade-in flex items-center gap-6 mb-8">
+                        <img src="${escapeHtml(thumb)}" 
+                             alt="${escapeHtml(title)}" 
+                             width="512" 
+                             height="384"
+                             class="w-24 h-24 md:w-28 md:h-28 rounded-2xl shadow-2xl border border-blue-500/30 object-cover hidden sm:block bg-slate-900" 
+                             loading="eager" 
+                             onerror="this.src='https://placehold.co/400x400/1e293b/60a5fa?text=${encodeURIComponent(title)}'">
+                        <div>
+                            <h1 class="text-3xl md:text-5xl font-black text-white mb-3 tracking-tight drop-shadow-lg font-poppins">${escapeHtml(title)}</h1>
+                            <div class="flex flex-wrap gap-2">
+                                ${categoriesHtml}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-2/3 flex flex-col gap-8">
+                            <div class="relative group w-full rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.15)] border border-blue-500/30 bg-[#050505] aspect-video animate-slide-up" style="animation-delay: 0.1s;">
+                                <div class="absolute -top-16 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-blue-500/20 blur-[60px] pointer-events-none z-0"></div>
+                                <div class="relative z-10 w-full h-full game-frame-wrapper">
+                                    ${embedCode}
+                                </div>
+                                <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <button onclick="const f = document.getElementById('game-iframe') || document.querySelector('.game-frame-wrapper iframe'); if(f) { if(f.requestFullscreen) f.requestFullscreen(); else if(f.webkitRequestFullscreen) f.webkitRequestFullscreen(); }"
+                                        class="bg-black/60 hover:bg-blue-600 backdrop-blur-md text-white px-4 py-2.5 rounded-xl border border-white/10 transition-all shadow-lg flex items-center gap-2 group/btn cursor-pointer" title="Enter Fullscreen">
+                                        <i class="fa-solid fa-expand group-hover/btn:scale-110 transition-transform"></i>
+                                        <span class="text-xs font-bold tracking-wider hidden sm:block">FULLSCREEN</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-3xl p-6 md:p-8 animate-slide-up shadow-xl" style="animation-delay: 0.2s;">
+                                <h2 class="font-poppins text-xl font-bold text-blue-400 border-b border-slate-700/60 pb-3 mb-5 flex items-center">
+                                    <i class="fa-solid fa-align-left mr-3"></i> Game Description
+                                </h2>
+                                <p class="text-slate-300 leading-relaxed text-[15px]">${escapeHtml(formattedDesc)}</p>
+                            </div>
+                            
+                            <div class="bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-3xl p-6 md:p-8 animate-slide-up shadow-xl" style="animation-delay: 0.3s;">
+                                <h2 class="font-poppins text-xl font-bold text-purple-400 border-b border-slate-700/60 pb-3 mb-5 flex items-center">
+                                    <i class="fa-solid fa-tags mr-3"></i> Tags & Features
+                                </h2>
+                                <div class="flex flex-wrap gap-2">
+                                    ${tagsHtml}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:w-1/3 flex flex-col gap-8">
+                            <div class="sm:hidden animate-slide-up" style="animation-delay: 0.1s;">
+                                 <img src="${escapeHtml(thumb)}" 
+                                      alt="${escapeHtml(title)}" 
+                                      width="512" 
+                                      height="384"
+                                      class="w-full h-auto rounded-3xl shadow-lg border border-blue-500/30 object-cover aspect-video bg-slate-900" 
+                                      loading="eager">
+                            </div>
+                            <div class="sticky top-24 bg-slate-900/80 backdrop-blur-md border border-slate-800 rounded-3xl p-6 md:p-8 animate-slide-up shadow-xl" style="animation-delay: 0.4s;">
+                                <h2 class="font-poppins text-lg font-bold text-orange-400 border-b border-slate-700/60 pb-3 mb-5 flex items-center">
+                                    <i class="fa-solid fa-fire mr-3"></i> You May Also Like
+                                </h2>
+                                <div class="grid grid-cols-2 gap-3">
+                                    ${gridItemsHtml}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('app-container').innerHTML = htmlContent;
+            document.title = escapeHtml(title) + " - Bekeirat Software";
+        }
+
+        function showError(message) {
+            document.getElementById('app-container').innerHTML = `
+                <div class="py-32 flex flex-col items-center text-center animate-slide-up px-4">
+                    <div class="bg-red-500/10 p-6 rounded-full border border-red-500/20 mb-6">
+                        <i class="fa-solid fa-triangle-exclamation text-5xl text-red-500 drop-shadow-md"></i>
+                    </div>
+                    <h2 class="text-3xl font-extrabold text-white mb-4 font-poppins">Oops! Something went wrong.</h2>
+                    <p class="text-slate-300 max-w-lg mx-auto text-lg mb-8 leading-relaxed">${escapeHtml(message)}</p>
+                    <a href="../index.html" class="inline-flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:bg-blue-500 transform hover:-translate-y-1 transition-all duration-300">
+                        <i class="fa-solid fa-arrow-left"></i> Return Home
+                    </a>
+                </div>
+            `;
+        }
+
+        function escapeHtml(s) {
+            return String(s || '')
+                .replaceAll('&', '&amp;')
+                .replaceAll('<', '&lt;')
+                .replaceAll('>', '&gt;')
+                .replaceAll('"', '&quot;')
+                .replaceAll("'", '&#39;');
+        }
+
+        // Initialize application
+        window.onload = loadGameData;
+    </script>
+
+    <!-- Load monetization scripts last with async -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2658659289706339" crossorigin="anonymous"></script>
+    <script async src="https://cdn.resources.wortise.com/sdk/web/web-sdk.js"></script>
+    <script async type="text/javascript" src="https://s.skimresources.com/js/307541X1795827.skimlinks.js"></script>
+</body>
+
+</html>
