@@ -372,17 +372,33 @@ def scrape_page(
             timeout=PAGE_LOAD_TIMEOUT_MS,
         )
         
-        # Check for HTTP errors
-        if response and response.status != 200:
-            logger.error(f"HTTP {response.status} for {target_url}")
-            return []
+        # Note: Y8.com sometimes returns 404 even for valid pages
+        # We'll proceed with scraping as long as the page loaded
+        if response and response.status != 200 and response.status != 404:
+            logger.warning(f"HTTP {response.status} for {target_url} (continuing anyway)")
+        elif response and response.status == 404:
+            logger.info(f"HTTP 404 for {target_url} (Y8.com quirk - continuing with page content)")
         
         # Wait for the container to be present
         try:
             page.wait_for_selector("#items_container", timeout=15000)
         except Exception as e:
-            logger.warning(f"Container not found on page {page_number}: {e}")
-            return []
+            logger.warning(f"Container #items_container not found on page {page_number}: {e}")
+            # Try alternative container selectors
+            try:
+                page.wait_for_selector(".games-grid", timeout=10000)
+                logger.info("Found .games-grid container")
+            except:
+                try:
+                    page.wait_for_selector(".game-list", timeout=10000)
+                    logger.info("Found .game-list container")
+                except:
+                    try:
+                        page.wait_for_selector("ul.games", timeout=10000)
+                        logger.info("Found ul.games container")
+                    except:
+                        logger.error(f"No game container found on page {page_number}")
+                        return []
         
         # Scroll to trigger lazy loading
         for _ in range(3):
@@ -394,38 +410,65 @@ def scrape_page(
         # Execute JavaScript to extract data
         scraped_data = page.evaluate("""
             () => {
-                const container = document.querySelector("#items_container");
-                if (!container) return null;
+                // Try multiple container selectors
+                const containers = [
+                    "#items_container",
+                    ".games-grid",
+                    ".game-list",
+                    "ul.games",
+                    ".game-container",
+                    ".browse-games",
+                    "div.games"
+                ];
                 
-                const listItems = container.querySelectorAll("li");
+                let container = null;
+                for (const selector of containers) {
+                    container = document.querySelector(selector);
+                    if (container) break;
+                }
+                
+                if (!container) {
+                    console.log("No container found with any selector");
+                    return null;
+                }
+                
+                const listItems = container.querySelectorAll("li, .game-item, .game, a.game-link");
                 const dataArray = [];
                 
                 listItems.forEach(item => {
-                    const tags = item.getAttribute("data-label-ids") || "";
-                    const video = item.getAttribute("data-mp4-movie") || "";
+                    const tags = item.getAttribute("data-label-ids") || 
+                                (item.querySelector("[data-label-ids]")?.getAttribute("data-label-ids") || "") || "";
+                    const video = item.getAttribute("data-mp4-movie") || 
+                                 (item.querySelector("[data-mp4-movie]")?.getAttribute("data-mp4-movie") || "") || "";
                     
-                    const anchor = item.querySelector("a");
-                    const title = anchor ? (anchor.getAttribute("aria-label") || 
-                                          anchor.getAttribute("title") || 
-                                          anchor.textContent?.trim() || "") : "";
+                    const anchor = item.querySelector("a") || item;
+                    const title = (anchor.getAttribute("aria-label") || 
+                                  anchor.getAttribute("title") || 
+                                  anchor.getAttribute("data-title") ||
+                                  anchor.textContent?.trim() || 
+                                  "").trim();
                     
-                    let url = anchor ? (anchor.getAttribute("href") || "") : "";
+                    let url = anchor.getAttribute("href") || "";
                     
                     const img = item.querySelector("img");
                     let image = "";
                     if (img) {
                         image = img.getAttribute("data-src") || 
                                img.getAttribute("src") || 
-                               img.getAttribute("data-original") || "";
+                               img.getAttribute("data-original") || 
+                               img.getAttribute("data-lazy") || "";
                     }
                     
-                    dataArray.push({
-                        title: title.trim(),
-                        url: url.trim(),
-                        tags: tags.trim(),
-                        image: image.trim(),
-                        video: video.trim()
-                    });
+                    // Only add if we have at least a title or URL
+                    if (title || url) {
+                        dataArray.push({
+                            title: title,
+                            url: url.trim(),
+                            tags: tags.trim(),
+                            image: image.trim(),
+                            video: video.trim()
+                        });
+                    }
                 });
                 
                 return dataArray;
