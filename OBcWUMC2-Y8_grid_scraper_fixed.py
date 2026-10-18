@@ -22,8 +22,13 @@ import signal
 import sys
 import time
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Generator
 from urllib.parse import urljoin, urlparse
+
+try:
+    import requests
+except ImportError:
+    requests = None
 
 from playwright.sync_api import Page, Playwright, Browser, BrowserContext, sync_playwright
 
@@ -37,6 +42,17 @@ REQUEST_DELAY_MIN = 1.5
 REQUEST_DELAY_MAX = 3.0
 ITEMS_PER_PAGE_THRESHOLD = 72
 OUTPUT_DIR = "output"
+
+# URL patterns to try for Y8.com (in order of preference)
+URL_PATTERNS = [
+    "{base}/{category}?page={page}",
+    "{base}/games/{category}?page={page}",
+    "{base}/browse/{category}?page={page}",
+    "{base}/{category}/{page}",
+    "{base}/games/{category}/{page}",
+    "{base}/category/{category}?page={page}",
+    "{base}/c/{category}?page={page}",
+]
 
 # Available categories list
 CATEGORIES = [
@@ -294,6 +310,24 @@ def get_page(
     return browser, context, page
 
 
+def build_target_url(category: str, page_number: int, base_url: str = BASE_URL) -> Generator[str, None, None]:
+    """
+    Build target URL by trying different patterns.
+    
+    Args:
+        category: The category to scrape
+        page_number: The page number
+        base_url: The base URL
+        
+    Yields:
+        URL patterns to try
+    """
+    # Try each pattern
+    for pattern in URL_PATTERNS:
+        url = pattern.format(base=base_url, category=category, page=page_number)
+        yield url
+
+
 def scrape_page(
     page: Page,
     category: str,
@@ -312,7 +346,22 @@ def scrape_page(
     Returns:
         List of scraped item dictionaries
     """
-    target_url = f"{base_url}/{category}?page={page_number}"
+    # Try each URL pattern
+    target_url = None
+    if requests:
+        for url_pattern in build_target_url(category, page_number, base_url):
+            try:
+                # Test if URL is accessible
+                response = requests.head(url_pattern, timeout=10, allow_redirects=True)
+                if response.status_code == 200:
+                    target_url = url_pattern
+                    break
+            except:
+                continue
+    
+    # If no pattern worked or requests not available, use the default
+    if target_url is None:
+        target_url = f"{base_url}/{category}?page={page_number}"
     logger.info(f"Scraping page {page_number}: {target_url}")
     
     try:
